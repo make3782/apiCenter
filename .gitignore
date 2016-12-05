@@ -22,3 +22,8 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+## webpack...
+node_modules
+*.log
+built
