@@ -33,7 +33,7 @@ module.exports = {
             { test: /\.vue$/, loader: 'vue' },
 
             //使用bebal转化为es2015
-            { test: /\.js$/, loader: 'babel', exclude: '/node_modules/' },
+            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
 
             { test: /\.css$/, loader: 'style!css' },
 
