@@ -8,14 +8,21 @@ export default {
     mutations: {
         [USER_SIGNIN](state, user) {
             console.log("comming in mutations");
-            //sessionStorage.setItem('user', 11111);
+            console.log(user);
+            sessionStorage.setItem('user', user);
         }
 
     },
 
     actions: {
         [USER_SIGNIN]({commit}, user) {
-            commit(USER_SIGNIN, user)
+            // ajax...
+            Vue.http.get('http://localhost/api.php').then((response) => {
+                commit(USER_SIGNIN, response.body);
+            }, (reason) => {
+                // error
+            })
+            // commit(USER_SIGNIN, user)
         }
     }
 }

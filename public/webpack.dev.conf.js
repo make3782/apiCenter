@@ -3,6 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var isDev = true;
+var projectRoot = path.resolve(__dirname, './');
 
 
 module.exports = {
@@ -30,10 +31,10 @@ module.exports = {
     module: {
         loaders: [
             //使用vue-loader加载.vue结尾的文件
-            { test: /\.vue$/, loader: 'vue' },
+            { test: /\.vue$/, loader: 'vue'},
 
             //使用bebal转化为es2015
-            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
+            { test: /\.js$/, loader: 'babel', exclude: /node_modules/, include: projectRoot },
 
             { test: /\.css$/, loader: 'style!css' },
 

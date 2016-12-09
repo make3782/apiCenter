@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 import routerConfig from './routers'
 import App from './App'
 import store from './store';
@@ -15,7 +16,7 @@ console.log(store);
 
 Vue.use(ElementUI);
 Vue.use(VueRouter);
-//Vue.use(routerConfig);
+Vue.use(VueResource);
 const router = new VueRouter({ routes: routerConfig });
 
 

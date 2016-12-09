@@ -25,14 +25,17 @@
 <script>
 
     import { mapActions } from 'vuex';
-    import { USER_SIGNIN } from 'store/user';
+    //import { USER_SIGNIN } from 'store/user';
 
-    console.log(this.$store);
+
 
         //import {USER_SIGNIN} from '../store/user';
 
 
     export default {
+        created() {
+            console.log(this.$store);
+        },
         // 数据
         data() {
             var valid_confirm_pass = (rule, value, callback) => {
@@ -71,27 +74,24 @@
 
         // 方法
         methods: {
-            ...mapActions([USER_SIGNIN]),
+            //...mapActions([USER_SIGNIN]),
             reset() {
                 this.$refs.login_form.resetFields();
             },
 
-            // submit(event) {
-            //     this.$refs.login_form.validate((valid) => {
-            //         if (valid) {
-            //             //注册
-            //             return true;
-            //         } else {
-            //             return false;
-            //         }
-            //     });
-            // }
-
-
-            submit() {
-                this.USER_SIGNIN(this.form);
-                console.log("wwwwwwzx");
+            submit(event) {
+                this.$refs.login_form.validate((valid) => {
+                    if (valid) {
+                        //注册
+                        this.$store.dispatch('USER_SIGNIN', this.form);
+                        //return true;
+                    } else {
+                        return false;
+                    }
+                });
             }
+
+
         }
     }
 </script>

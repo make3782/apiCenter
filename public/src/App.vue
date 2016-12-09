@@ -12,6 +12,7 @@
 <script>
     import Navbar from './components/common/navbar'
 
+
     export default {
         components: {
             Navbar
