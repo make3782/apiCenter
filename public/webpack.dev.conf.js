@@ -38,6 +38,8 @@ module.exports = {
 
             { test: /\.css$/, loader: 'style!css' },
 
+            { test: /\.less$/, loader: 'style!css!less'},
+
             //字体文件
             { test: /\.(woff2?|eot|ttf|svg|otf)(\?.*)?$/, loader: 'file-loader' },
 
@@ -63,6 +65,12 @@ module.exports = {
         inline: true,   //实时刷新
         colors: true,    //终端中输出结果为彩色
         port: 8090,      // 默认监听端口，默认为8080
-        hot:true
+        hot: true,
+        proxy: {
+          '/api/*': {
+              target: 'http://localhost:8080',
+              secure: false
+          }
+        }
     }
 }

@@ -1,15 +1,14 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
-import user from './user';
+import Vuex from 'vuex';
+import app from './modules/app';
 
 Vue.use(Vuex);
 
 
 
 export default new Vuex.Store({
-    //strict: process.env.NODE_ENV != 'production',
-    //strict: true,
+    strict: process.env.NODE_ENV != 'production',
     modules: {
-        user
+        app
     }
 })

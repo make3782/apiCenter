@@ -1,21 +1,31 @@
 <template>
     <div class="main">
         <Navbar></Navbar>
+
+
         <div class="application-view">
             <keep-alive>
                 <router-view></router-view>
             </keep-alive>
         </div>
+
+        <Sidebar></Sidebar>
     </div>
+
+
 </template>
 
 <script>
-    import Navbar from './components/common/navbar'
+    import Sidebar from './components/common/sidebar';
+    import Navbar from './components/common/navbar';
+
+
+    //console.log(Sidebar);
 
 
     export default {
         components: {
-            Navbar
+            Sidebar,Navbar
         }
     }
 </script>
@@ -32,7 +42,7 @@
 
     .application-view {
         margin:auto;
-        margin-left: 100px;
+        /*margin-left: 100px;*/
         margin-right: 0;
         margin-top: 50px;
     }
